@@ -8,18 +8,3 @@ pipelines:
       git:
         url: "https://github.com/dhruvguptaTTN/test-gocd.git"
         branch: "main"
-    stages:
-      - build:
-          jobs:
-            - give_permission_and_run:
-                tasks:
-                  - exec:
-                      command: "bash"
-                      arguments:
-                        - "-c"
-                        - |
-                          chmod +x test.sh
-                          ./test.sh
-                artifacts:
-                  - source: "test.sh"
-                    destination: "build/test.sh"
