@@ -5,7 +5,7 @@ pipelines:
     label_template: "${COUNT}"
     materials:
       git:
-        url: "https://your-repository-url.git"
+        url: "https://github.com/dhruvguptaTTN/test-gocd.git"
         branch: "main"
     stages:
       - build:
