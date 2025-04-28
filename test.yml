@@ -1,0 +1,7 @@
+version: '1.0'
+services:
+  hello_script:
+    image: bash:latest
+    command: |
+      chmod +x test.sh    
+      ./test.sh
