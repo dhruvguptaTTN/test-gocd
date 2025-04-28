@@ -1,7 +1,24 @@
-version: '1.0'
-services:
-  hello_script:
-    image: bash:latest
-    command: |
-      chmod +x test.sh    
-      ./test.sh
+format_version: 1
+pipelines:
+  hello_pipeline:
+    group: default
+    label_template: "${COUNT}"
+    materials:
+      git:
+        url: "https://github.com/dhruvguptaTTN/test-gocd.git"
+        branch: "main"
+    stages:
+      - build:
+          jobs:
+            - give_permission_and_run:
+                tasks:
+                  - exec:
+                      command: "bash"
+                      arguments:
+                        - "-c"
+                        - |
+                          chmod +x test.sh
+                          ./test.sh
+                artifacts:
+                  - source: "test.sh"
+                    destination: "build/test.sh"
