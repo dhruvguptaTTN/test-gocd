@@ -3,6 +3,7 @@ pipelines:
   hello_pipeline:
     group: default
     label_template: "${COUNT}"
+    template: test
     materials:
       git:
         url: "https://github.com/dhruvguptaTTN/test-gocd.git"
