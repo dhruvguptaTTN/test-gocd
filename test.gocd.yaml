@@ -1,0 +1,26 @@
+format_version: 1
+
+pipelines:
+  dhruv-ki-pipeline-2:
+    group: TTN
+    label_template: ${COUNT}
+    template: test-gocd
+    materials:
+      repo:
+        git: git@github.com:dhruvguptaTTN/test-gocd.git
+        branch: main
+
+templates:
+  test-gocd:
+    stages:
+      - BuildStage:
+          jobs:
+            - BuildJob:
+                tasks:
+                  - exec:
+                      command: chmod
+                      arguments:
+                        - +x
+                        - test.sh
+                  - exec:
+                      command: ./test.sh
